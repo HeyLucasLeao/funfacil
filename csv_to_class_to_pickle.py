@@ -30,7 +30,7 @@ def class_to_pickle(arr, path):
     return f'the file has been pickled. You can look at the PATH: ({path})'
 
 
-def pickles_to_class(path):
+def pickle_to_class(path):
     with open(path, mode='rb') as file:
         data = pickle.load(file)
     return data
