@@ -1,4 +1,4 @@
-def visualizar_modelo_ajustado(model, alpha=0.5, x=None, y=None):
+def visualizar_modelo_treinado(model, alpha=0.05, x=None, y=None):
     from scipy import stats
     distribuicao = stats.t(df = model.df_resid)
     t_values = model.tvalues
