@@ -1,4 +1,4 @@
-def autocorrelacao(data, title='Autocorrelação de Dado', figsize=(12,6)):
+def autocorrelacao(data, title='Correlação de Dados', figsize=(12,6)):
     from pandas.plotting import autocorrelation_plot
     import matplotlib.pyplot as plt    
     ax = plt.figure(figsize=figsize)
