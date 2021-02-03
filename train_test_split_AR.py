@@ -1,6 +1,6 @@
-def train_test_split_AR(data, percent=0.33):
-    divide = 1 - percent
+def train_test_split_AR(data, percentage_to_test=0.33):
+    divide = 1 - percentage_to_test
     train_size = int(len(data) * divide)
-    data_train = data[:train_size]
-    data_test = data[train_size:]
-    return (data_train, data_test)
+    training_set = data[:train_size + 1]
+    test_set = data[train_size:]
+    return (training_set, test_set)
