@@ -1,7 +1,7 @@
 def meses_anos(data):
-    from calendar import month_abbr
-    import datetime
-    import numpy as np
+    #from calendar import month_abbr
+    #from datetime import datetime
+    #import numpy as np
     
     dici = {'Jan': 'Jan',
             'Feb': 'Fev',
@@ -15,7 +15,7 @@ def meses_anos(data):
         'Oct': 'Out', 
         'Nov': 'Nov',
         'Dec': 'Dez'}
-    dois_meses_seguintes = str(datetime.datetime.now() + datetime.timedelta(weeks=8))[:10]
+    dois_meses_seguintes = str(datetime.now() + timedelta(weeks=8))[:10]
     
     dias = np.arange(data, dois_meses_seguintes, dtype='datetime64[M]')
     anos_sigla = [str(x)[:4] for x in dias]
