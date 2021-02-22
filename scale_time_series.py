@@ -1,7 +1,7 @@
 # scale train and test data to [-1, 1]
 def scale_time_series(train, test):
     # fit scaler
-    scaler = MinMaxScaler(feature_range=(0, 1))
+    scaler = MinMaxScaler()
     scaler = scaler.fit(np.array(train).reshape(-1,1))
     # transform train
     train = np.array(train).reshape(-1,1)
