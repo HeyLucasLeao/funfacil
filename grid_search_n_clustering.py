@@ -1,4 +1,4 @@
-#from sklearn import metrics
+from sklearn import metrics
 
 def clustering_algorithm(n_clusters, dataset):
     kmeans = KMeans(n_clusters=n_clusters,
