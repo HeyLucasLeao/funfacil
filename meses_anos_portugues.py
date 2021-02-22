@@ -1,7 +1,8 @@
+from calendar import month_abbr
+from datetime import datetime
+import numpy as np
+
 def meses_anos(data):
-    #from calendar import month_abbr
-    #from datetime import datetime
-    #import numpy as np
     
     dici = {'Jan': 'Jan',
             'Feb': 'Fev',
