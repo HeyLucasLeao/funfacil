@@ -1,6 +1,7 @@
 from sklearn import metrics
 
 def clustering_algorithm(n_clusters, dataset):
+    SEED = 20
     kmeans = KMeans(n_clusters=n_clusters,
                 n_init=10,
                 random_state=SEED,
