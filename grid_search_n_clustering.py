@@ -2,20 +2,22 @@ from sklearn import metrics
 import pandas as pd
 import numpy as np
 
-def clustering_algorithm(n_clusters, dataset, SEED=10):
-    SEED = SEED
-    kmeans = KMeans(n_clusters=n_clusters,
-                n_init=10,
-                random_state=SEED,
-                max_iter=300)
-    labels = kmeans.fit_predict(dataset)
-    s = metrics.silhouette_score(dataset, labels, metric='euclidean')
-    db = metrics.davies_bouldin_score(dataset, labels)
-    calinski = metrics.calinski_harabasz_score(dataset, labels)
-    return [s, db, calinski]
-
 def grid_search_n_clustering(dataset, start=2, end=30):
+    
+    def clustering_algorithm(n_clusters, dataset, SEED=20):
+        SEED = SEED
+        kmeans = KMeans(n_clusters=n_clusters,
+                    n_init=10,
+                    random_state=SEED,
+                    max_iter=300)
+        labels = kmeans.fit_predict(dataset)
+        s = metrics.silhouette_score(dataset, labels, metric='euclidean')
+        db = metrics.davies_bouldin_score(dataset, labels)
+        calinski = metrics.calinski_harabasz_score(dataset, labels)
+        return [s, db, calinski]
+    
     result_grid_search = []
+    
     for i in range(start, end):
         result_grid_search.append([i, clustering_algorithm(i, dataset)])
 
