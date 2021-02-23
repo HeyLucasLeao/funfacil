@@ -1,7 +1,9 @@
 from sklearn import metrics
+import pandas as pd
+import numpy as np
 
-def clustering_algorithm(n_clusters, dataset):
-    SEED = 20
+def clustering_algorithm(n_clusters, dataset, SEED=10):
+    SEED = SEED
     kmeans = KMeans(n_clusters=n_clusters,
                 n_init=10,
                 random_state=SEED,
@@ -30,7 +32,6 @@ def grid_search_n_clustering(dataset, start=2, end=30):
 
         if result_grid_search[i][1][2] > r3[1][2]:
             r3 = result_grid_search[i]
-
-    return f"""Silhouette: N.º de Clusters: {r1[0]} -------- {r1[1]}, 
-    Davies Bouldin: N.º de Clusters: {r2[0]} -------- {r2[1]}, 
-    Calinski Harabrasz: N.º de Clusters: {r3[0]} -------- {r3[1]}"""
+            
+    df = pd.DataFrame(data=(r1[1], r2[1], r3[1]), columns=['Silhouette Score', 'Davies Bouldin', 'Calinski Harabasz'], index=[r1[0], r2[0], r3[0]])
+    return df
