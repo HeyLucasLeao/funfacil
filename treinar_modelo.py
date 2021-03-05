@@ -6,7 +6,7 @@ def treinar_modelo(params):
     min_child_samples = params[2]
     subsample = params[3]
     colsample_bytree = params[4]
-    n_estimators - params[5]
+    n_estimators = params[5]
 
     print(params, '\n')
     
