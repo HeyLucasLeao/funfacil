@@ -21,7 +21,7 @@ def treinar_modelo(params):
     mdl.fit(X_train, y_train)
     y_pred = mdl.predict(X_test)
 
-    return mean_absolute_percentage_error(y_test, y_pred)
+    return -r2_score(y_test, y_pred)
 
 space = [(1e-3, 1e-1, 'log-uniform'), #learning rate
 (2, 128), #num_leaves
