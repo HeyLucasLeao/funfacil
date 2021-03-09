@@ -1,4 +1,4 @@
-def treinar_modelo(params):
+def search_hyperparams(params):
     SEED = 4
 
     learning_rate = params[0]
