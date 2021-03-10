@@ -30,7 +30,7 @@ space = [(1e-3, 1e-1, 'log-uniform'), #learning rate
 (0.1, 1.0), #colsample_bytree
 (100, 1000)] #n_estimators
 
-result = dummy_minimize(treinar_modelo, 
+result = dummy_minimize(search_hyperparams, 
 space,
 random_state=SEED, 
 verbose=1,
