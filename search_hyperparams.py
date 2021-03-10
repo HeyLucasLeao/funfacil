@@ -10,7 +10,7 @@ def search_hyperparams(params):
 
     print(params, '\n')
     
-    mdl = LGBMRegressor(random_state=SEED,
+    mdl = LGBMClassifier(random_state=SEED,
     learning_rate = learning_rate, 
     num_leaves = num_leaves, 
     min_child_samples = min_child_samples, 
@@ -21,7 +21,7 @@ def search_hyperparams(params):
     mdl.fit(X_train, y_train)
     y_pred = mdl.predict(X_test)
 
-    return -r2_score(y_test, y_pred)
+    return -accuracy_score(y_test, y_pred)
 
 space = [(1e-3, 1e-1, 'log-uniform'), #learning rate
 (2, 128), #num_leaves
@@ -35,3 +35,5 @@ space,
 random_state=SEED, 
 verbose=1,
 n_calls = 30)
+
+#learning_rate, num_leaves, min_child_samples, subsample, colsample_bytree, n_estimators = result.x
