@@ -1,16 +1,7 @@
-from lightgbm import LGBMRegressor
 from sktime.performance_metrics.forecasting import smape_loss
 
 
-def ExpandingWindowSplitter(data_frame, target, fh=1, step_length=1, initial_window = 10, SEED = 4):
-    model = LGBMRegressor(random_state=SEED,
-    learning_rate=0.1,
-    colsample_bytree=0.19578750056100663,
-    min_child_samples=78,
-    n_estimators=666, num_leaves=104,
-    subsample=1.0,
-    subsample_freq=1)
-
+def ExpandingWindowSplitter(data_frame, target, model, fh=1, step_length=1, initial_window = 10, SEED = 4):
     data_frame = data_frame.copy()
     data_frame = data_frame.drop(columns=['date'])
 
