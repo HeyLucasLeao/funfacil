@@ -17,10 +17,8 @@ def ExpandingWindowSplitter(data_frame, target, fh=1, step_length=1, initial_win
     X_data = data_frame.drop(columns=[target])
     y_data = data_frame[target]
     
-    column = np.array([])
-
     data_frame['test_sMAPE'] = np.nan
-    
+
     for i in range(initial_window, len(data_frame), step_length):
 
         X_train, X_test = X_data[:i], X_data[i:i + fh]
