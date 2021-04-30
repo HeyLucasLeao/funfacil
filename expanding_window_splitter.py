@@ -1,7 +1,7 @@
 from sktime.performance_metrics.forecasting import smape_loss
 
 
-def ExpandingWindowSplitter(data_frame, target, model, fh=1, step_length=1, initial_window = 10, SEED = 4):
+def expanding_window_splitter(data_frame, target, model, fh=1, step_length=1, initial_window = 10, SEED = 4):
     data_frame = data_frame.copy()
     data_frame = data_frame.drop(columns=['date'])
 
