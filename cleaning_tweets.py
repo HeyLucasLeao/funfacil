@@ -1,3 +1,6 @@
+import re
+import pandas as pd
+
 def cleaning_tweets(data, language='pt'):
     dataset = data.copy()
     dataset = dataset[dataset['language'] == language]
