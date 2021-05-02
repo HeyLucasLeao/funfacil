@@ -13,14 +13,18 @@ class Dataset(Dataset):
 
     def __getitem__(self, item):
         text = str(self.texts[item])
-        encoding = tokenizer(text,padding='max_length', truncation=True, return_tensors='pt')
+        encoding = tokenizer(
+        text,
+        padding='max_length',
+        truncation=True,
+        return_tensors='pt'
+        )
         return {
             'input_ids': encoding['input_ids'],
             'attention_mask': encoding['attention_mask'],
             'targets': torch.tensor(self.target[item], dtype=torch.long) 
         }
-        
-        
+
 def create_dataloader(df, tokenizer, max_len, bs, num_workers=4):
     dataset = Dataset(
         text=df['text'].to_numpy(),
@@ -28,8 +32,6 @@ def create_dataloader(df, tokenizer, max_len, bs, num_workers=4):
         tokenizer=tokenizer,
         max_len=max_len
     )
-    return DataLoader(
-        dataset,
-        bs=bs,
-        num_workers=num_workers
-    )
+    data_loader= DataLoader(dataset, bs, num_workers)
+
+    return data_loader
