@@ -12,7 +12,7 @@ class Dataset(Dataset):
         return len(self.text)
 
     def __getitem__(self, item):
-        text = str(self.texts[item])
+        text = str(self.text[item])
         encoding = tokenizer(
         text,
         padding='max_length',
@@ -22,7 +22,7 @@ class Dataset(Dataset):
         return {
             'input_ids': encoding['input_ids'],
             'attention_mask': encoding['attention_mask'],
-            'targets': torch.tensor(self.target[item], dtype=torch.long) 
+            'targets': torch.tensor(self.target[item],             dtype=torch.long) 
         }
 
 def create_dataloader(df, tokenizer, max_len, bs, num_workers=4):
