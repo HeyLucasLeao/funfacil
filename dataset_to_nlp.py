@@ -1,5 +1,3 @@
-from torch.utils.data import Dataset, DataLoader
-
 class Dataset(Dataset):
 
     def __init__(self, text, target, tokenizer, max_len):
@@ -17,7 +15,8 @@ class Dataset(Dataset):
         text,
         padding='max_length',
         truncation=True,
-        return_tensors='pt'
+        return_tensors='pt',
+        max_length=self.max_len
         )
         return {
             'input_ids': encoding['input_ids'],
